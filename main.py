@@ -34,14 +34,14 @@ def analyze_text(input_data: TextInput):
         doc, _ = preprocess(text)
 
         # Run LDA
-        theta, topic_words = run_lda(doc)
+        theta = run_lda(doc)
     except Exception as e:
         logging.error("An error occurred: %s", e)
         raise HTTPException(
             status_code=500, detail="An error occurred during processing."
         ) from e
 
-    return {"topics": theta.tolist(), "topic_words": topic_words}
+    return {"topics": theta.tolist()}
 
 
 if __name__ == "__main__":

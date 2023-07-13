@@ -77,4 +77,4 @@ def run_lda(doc, K=5, alpha=0.1, beta=0.1, n_samples=2000, burn_in=1000):
         idx = np.argsort(word_counts[k,:])[::-1]
         topic_words.append([id_to_word[i] for i in idx[:10]])
 
-    return theta, topic_words
+    return theta
